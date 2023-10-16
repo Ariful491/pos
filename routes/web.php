@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,8 +33,6 @@ require __DIR__ . '/auth.php';
 
 Route::group(['middleware' => 'auth'], function () {
     /**==== User Management =====**/
-
-   // Route::resource('/users', UserController);
-
+    Route::resource('/users', UserController::class);
 });
 
