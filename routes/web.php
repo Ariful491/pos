@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth', 'verified'], function () {
     /**==== User Management =====**/
     Route::resource('/users', UserController::class);
 });

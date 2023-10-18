@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Queue;
 
 class UserController extends Controller
 {
@@ -12,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user-management.index');
+        /** @var QueryBuilder $users */
+        $users = User::orderByDesc('id')->get();
+        return view('user-management.index', ['users' => $users]);
     }
 
     /**
