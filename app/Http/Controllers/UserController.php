@@ -17,21 +17,18 @@ class UserController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = User::select('*');
-
-            return DataTables::of($data)
+            //$data = User::select('*');
+            $users = User::query();
+            return DataTables::of($users)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-                    return $btn;
+                    return '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
                 })
                 ->rawColumns(['action'])
                 ->make(true);
 
         }
-        /** @var QueryBuilder $users */
-        $users = User::orderByDesc('id')->get();
-        return view('user-management.index', ['users' => $users]);
+        return view('user-management.index');
     }
 
     /**

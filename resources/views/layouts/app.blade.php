@@ -14,7 +14,7 @@
     <!-- Datatables  CSS-->
     <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.dataTables.min.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/buttons.dataTables.min.css') }}" rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -41,36 +41,16 @@
 <!-- Datatables JS  -->
 <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/dataTables.buttons.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/jszip.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/pdfmake.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/vfs_fonts.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/buttons.html5.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/buttons.print.min.js') }}" type="text/javascript"></script>
+
 <script src="{{ asset('js/dataTables.responsive.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/customs.js') }}" type="text/javascript"></script>
 
-<script>
-    $(document).ready(function () {
-
-        // let table = $('#example').DataTable({
-        //     responsive: true
-        // })
-        //     .columns.adjust()
-        //     .responsive.recalc();
-
-
-        $(function () {
-            let table = $('#example').DataTable({
-
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('users.index') }}",
-                columns: [
-                    {data: 'id', name: 'id'},
-                    {data: 'name', name: 'name'},
-                    {data: 'email', name: 'email'},
-                    {data: 'action', name: 'action', orderable: false, searchable: false},
-                ],
-
-            });
-        })
-    });
-
-</script>
 
 </body>
 </html>

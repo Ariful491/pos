@@ -170,7 +170,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-        Yajra\DataTables\HtmlServiceProvider::class,
+       // Yajra\DataTables\HtmlServiceProvider::class,
     ])->toArray(),
 
     /*

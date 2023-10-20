@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 .dataTables_wrapper select,
+.dataTables_wrapper .dataTables_filter input:focus , .dataTables_wrapper select,
+.dataTables_wrapper .dataTables_filter input:active {
+    border-color: #658cb3;
+}
+
+.dataTables_wrapper select{
+    width: 100px!important;
+}
+
+
+
+.dataTables_wrapper select,
 .dataTables_wrapper .dataTables_filter input {
     color: #4a5568;
     /*text-gray-700*/
@@ -16,7 +28,7 @@
     /*pl-2*/
     line-height: 1.25;
     /*leading-tight*/
-    border-width: 2px;
+    border-width: 3px;
     /*border-2*/
     border-radius: .5rem;
     border-color: #edf2f7;
@@ -91,4 +103,13 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 table.dataTable thead th, table.dataTable thead td,table.dataTable.no-footer {
     border-bottom: none!important;
 }
+
+
+.dataTables_processing {
+    background-color: #ffffFf!important; /* Change the background color to your preference */
+    border: 1px solid #ccc!important;
+    height: 80px!important;
+    border-radius: 10px!important;
+}
+
 
