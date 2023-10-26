@@ -27,7 +27,7 @@
                             </a>
                         </li>
                         <li class="my-2">
-                            <a href=""
+                            <a href="{{route('roles.index')}}"
                                class="p-3 rounded-2xl  hover:shadow hover:transition-all  flex hover:bg-gray-100  sm:py-4 justify-between">Roles</a>
                         </li>
                     </ul>
