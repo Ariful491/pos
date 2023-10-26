@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('permissions', function (Blueprint $table) {
-            $table->string('module_name', 250);
+            $table->string('module_name', 250)->after('guard_name');
         });
     }
 
