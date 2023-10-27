@@ -23,7 +23,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div
                 class=" bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <form method="post" action="">
+                <form method="post" action="{{route('roles.store')}}">
                     @csrf
                     <div class="grid grid-cols-3">
                         <div class="mb-6">
@@ -32,6 +32,7 @@
                                 Role Name
                             </label>
                             <input type="text" id="base-input"
+                                   name="role_name"
                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
@@ -71,6 +72,7 @@
                                                         <input id="permission_{{$moduleName}}_{{$permission->id}}"
                                                                type="checkbox"
                                                                data-type="child"
+                                                               name="permissions[]"
                                                                value="{{$permission->id}}"
                                                                class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                                         <label for="permission_{{$moduleName}}_{{$permission->id}}"
