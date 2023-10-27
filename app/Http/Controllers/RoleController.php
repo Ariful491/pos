@@ -19,7 +19,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('user-management.role.add');
     }
 
     /**
