@@ -4,26 +4,66 @@
             {{ __('Role Add') }}
         </h2>
     </x-slot>
-
+    <div class="container mt-2">
+        <div class="flex justify-end">
+            <button type="button"
+                    onclick="history.back()"
+                    class=" bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white bg-blue-700 hover:bg-blue-800  inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Back
+                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </button>
+        </div>
+    </div>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <form method="post" action="">
-                @csrf
-                <div class="mb-6">
-                    <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Base
-                        input</label>
-                    <input type="text" id="base-input"
-                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                </div>
-                <div class="mb-6">
-
-                    <label>
-                        <input type="checkbox" class="accent-pink-300 focus:accent-pink-500"  >Blog View
-                    </label>
-
-                </div>
-            </form>
+            <div
+                class=" bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <form method="post" action="">
+                    @csrf
+                    <div class="grid grid-cols-3">
+                        <div class="mb-6">
+                            <label for="base-input"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Role Name
+                            </label>
+                            <input type="text" id="base-input"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        @foreach($moduleNameWisePermissions as $moduleName => $permissions)
+                            <div class="border  m-3 rounded-2xl px-3 py-3  ">
+                                <div class=" flex">
+                                    <div class="flex items-center  pr-5 border-r-2">
+                                        <input id="{{$moduleName}}" type="checkbox" value=""
+                                               class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="{{$moduleName}}"
+                                               class="ml-2 text-sm capitalize font-medium text-gray-900 dark:text-gray-300">
+                                            {{$moduleName}}
+                                        </label>
+                                    </div>
+                                    <div>
+                                        @foreach($permissions as $permission)
+                                            <div class="flex items-center mr-4   p-4">
+                                                <input id="{{$moduleName}}-{{$permission->name}}" type="checkbox"
+                                                       value="{{$permission->id}}"
+                                                       class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                <label for="{{$moduleName}}-{{$permission->name}}"
+                                                       class="ml-2 text-sm font-medium capitalize text-gray-900 dark:text-gray-300">{{$permission->name}}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 

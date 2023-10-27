@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
@@ -19,7 +21,11 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('user-management.role.add');
+        /** @var Collection $permissions */
+        $moduleNameWisePermissions = Permission::get()
+            ->groupBy('module_name');
+
+        return view('user-management.role.add', ['moduleNameWisePermissions' => $moduleNameWisePermissions]);
     }
 
     /**
