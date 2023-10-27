@@ -36,5 +36,6 @@ Route::group(['middleware' => 'auth', 'verified'], function () {
     /** User Management**/
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RoleController::class);
+
 });
 

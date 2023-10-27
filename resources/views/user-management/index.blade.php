@@ -34,7 +34,7 @@
                 </div>
                 <div class=" col-span-3">
                     <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                        <table id="example" class="stripe hover"
+                        <table id="user-table" class="stripe hover"
                                style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                             <thead>
                             <tr>

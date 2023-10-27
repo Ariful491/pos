@@ -1,7 +1,6 @@
 $(document).ready(function () {
-
     $(function () {
-        let table = $('#example').DataTable({
+        let table = $('#user-table').DataTable({
             dom: 'frlBtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
@@ -20,9 +19,6 @@ $(document).ready(function () {
                 {data: 'email', name: 'email'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
-
         });
     })
-
-
 });
