@@ -35,37 +35,54 @@
                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
-                    <div class="grid grid-cols-2">
-                        @foreach($moduleNameWisePermissions as $moduleName => $permissions)
-                            <div class="checkbox-observer">
-                                <div class="border  m-3 rounded-2xl px-3 py-3  ">
-                                    <div class=" flex">
-                                        <div class="flex items-center  pr-5 border-r-2">
-                                            <input id="permission_{{$moduleName}}" type="checkbox" data-type="module"
-                                                   value="{{$permissions}}"
-                                                   class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="permission_{{$moduleName}}"
-                                                   class="ml-2 text-sm capitalize font-medium text-gray-900 dark:text-gray-300">
-                                                {{$moduleName}}
-                                            </label>
-                                        </div>
-                                        <div class="child-box">
-                                            @foreach($permissions as $permission)
-                                                <div class="flex items-center mr-4   p-4">
-                                                    <input id="permission_{{$moduleName}}_{{$permission->id}}"
-                                                           type="checkbox"
-                                                           data-type="child"
-                                                           value="{{$permission->id}}"
-                                                           class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                    <label for="permission_{{$moduleName}}_{{$permission->id}}"
-                                                           class="ml-2 text-sm font-medium capitalize text-gray-900 dark:text-gray-300">{{$permission->name}}</label>
-                                                </div>
-                                            @endforeach
+                    <label for="base-input"
+                           class="block   mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Permissions
+                    </label>
+                    <div class="m-3  rounded-2xl px-3 py-3 ">
+                        <input id="select-all-permissions" type="checkbox"
+                               class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="select-all-permissions"
+                               class="ml-2 text-sm capitalize font-medium text-gray-900 dark:text-gray-300">
+                            Select All
+                        </label>
+
+                    </div>
+                    <div class="all-permissions">
+                        <div class="grid grid-cols-2">
+                            @foreach($moduleNameWisePermissions as $moduleName => $permissions)
+                                <div class="checkbox-observer">
+
+                                    <div class="border  m-3 rounded-2xl px-3 py-3  ">
+                                        <div class=" flex">
+                                            <div class="flex items-center  pr-5 border-r-2">
+                                                <input id="permission_{{$moduleName}}" type="checkbox"
+                                                       data-type="module"
+                                                       value="{{$permissions}}"
+                                                       class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                <label for="permission_{{$moduleName}}"
+                                                       class="ml-2 text-sm capitalize font-medium text-gray-900 dark:text-gray-300">
+                                                    {{$moduleName}}
+                                                </label>
+                                            </div>
+                                            <div class="child-box">
+                                                @foreach($permissions as $permission)
+                                                    <div class="flex items-center mr-4   p-4">
+                                                        <input id="permission_{{$moduleName}}_{{$permission->id}}"
+                                                               type="checkbox"
+                                                               data-type="child"
+                                                               value="{{$permission->id}}"
+                                                               class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                        <label for="permission_{{$moduleName}}_{{$permission->id}}"
+                                                               class="ml-2 text-sm font-medium capitalize text-gray-900 dark:text-gray-300">{{$permission->name}}</label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </form>
             </div>
