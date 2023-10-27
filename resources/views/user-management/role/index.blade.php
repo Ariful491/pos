@@ -17,7 +17,7 @@
                                class="p-3 rounded-2xl  hover:shadow hover:transition-all  flex hover:bg-gray-100  sm:py-4 justify-between">Users </a>
                         </li>
                         <li class="my-2">
-                            <a href=""{{route('roles.index')}}"" class="p-3 rounded-2xl shadow flex bg-gray-100  sm:py-4 justify-between">
+                            <a href="{{route('roles.index')}}" class="p-3 rounded-2xl shadow flex bg-gray-100  sm:py-4 justify-between">
                                 <div>
                                     Roles
                                 </div>
