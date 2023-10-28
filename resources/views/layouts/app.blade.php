@@ -38,7 +38,7 @@
     </main>
 </div>
 
-<!-- Datatables JS  -->
+<!-- Jquery & Datatables JS  -->
 <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/dataTables.buttons.min.js') }}" type="text/javascript"></script>
@@ -47,8 +47,10 @@
 <script src="{{ asset('js/vfs_fonts.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/buttons.html5.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/buttons.print.min.js') }}" type="text/javascript"></script>
-
 <script src="{{ asset('js/dataTables.responsive.min.js') }}" type="text/javascript"></script>
+<!--   Datatables Server all  JS  -->
+<script src="{{ asset('js/dataTables.js') }}" type="text/javascript"></script>
+<!--   Custom Js  -->
 <script src="{{ asset('js/customs.js') }}" type="text/javascript"></script>
 
 
