@@ -57,28 +57,37 @@ $(document).ready(function () {
         return checkedCount;
     }
 
+
     /* === Submit those form that id was form-ajax  === */
     $('body #form-ajax').submit(function () {
         event.preventDefault();
-        let url = $(this).attr('action');
-        let method_name = $(this).attr('method');
-        let type_name = $(this).attr('enctype');
-        let form = $(this)[0];
-        let data = new FormData(form);
+        let url, methodName, TypeName, form, data, submitBtn, submitBtnText;
+        url = $(this).attr('action');
+        methodName = $(this).attr('method');
+        TypeName = $(this).attr('enctype');
+        form = $(this)[0];
+        data = new FormData(form);
+        submitBtn = $('.submit-button');
+        submitBtnText = $('.submit-btn-text');
+        $(submitBtnText).text("Processing...");
+        $(submitBtn).prop("disabled", true);
+
 
         $.ajax({
-            type: method_name,
-            enctype: type_name,
+            type: methodName,
+            enctype: TypeName,
             url: url,
             data: data,
             processData: false,
             contentType: false,
             cache: false,
             timeout: 800000,
-        }).done(() => {
-
-        }).fail(() => {
-
+        }).done((res) => {
+            $(submitBtnText).text("Save");
+            $(submitBtn).prop("disabled", false);
+            console.log(res);
+        }).fail((error) => {
+            console.log(error)
         });
     })
 
