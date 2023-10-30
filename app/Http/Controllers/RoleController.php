@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
@@ -17,14 +20,13 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
-    public function create()
+    public function create(): \Illuminate\Foundation\Application|View|Factory|Application
     {
-        /** @var Collection $permissions */
+
         $moduleNameWisePermissions = Permission::get()
             ->groupBy('module_name');
-
         return view('user-management.role.add', ['moduleNameWisePermissions' => $moduleNameWisePermissions]);
     }
 
