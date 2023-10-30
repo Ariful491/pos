@@ -4,7 +4,7 @@ namespace App\Common;
 
 class Common
 {
-    /*===== FOR ALERT VARIABLES =====*/
+    /*===== ALERT VARIABLES & METHOD =====*/
     const  ALERT_TYPE_ERROR = "error";
     const  ALERT_TYPE_WARNING = "warning";
     const  ALERT_TYPE_SUCCESS = "success";
