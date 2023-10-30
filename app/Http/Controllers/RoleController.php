@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Common\Common;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 
@@ -20,14 +23,24 @@ class RoleController extends Controller
     }
 
     /**
-     * @return Application|Factory|View|\Illuminate\Foundation\Application
+     * @return Application|Factory|View|\Illuminate\Foundation\Application|RedirectResponse
      */
-    public function create(): \Illuminate\Foundation\Application|View|Factory|Application
-    {
 
-        $moduleNameWisePermissions = Permission::get()
-            ->groupBy('module_name');
-        return view('user-management.role.add', ['moduleNameWisePermissions' => $moduleNameWisePermissions]);
+    public function create()
+    {
+        try {
+            $moduleNameWisePermissions = Permission::get()
+                ->groupBy('module_name');
+            $moduleNameWisePermissions = null;
+            if (empty($moduleNameWisePermissions)) {
+                throw new ValidationException("Permissions was not found.");
+            }
+            return view('user-management.role.add', ['moduleNameWisePermissions' => $moduleNameWisePermissions]);
+        } catch (\Throwable $ex) {
+            session()->flash(Common::ALERT_MESSAGE_TEXT, $ex->getMessage());
+            session()->flash(Common::ALERT_TYPE_ERROR, 'error');
+            return back();
+        }
     }
 
     /**
