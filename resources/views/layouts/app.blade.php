@@ -62,8 +62,11 @@ use App\Common\Common;
        </div>
    --}}
 
-    @if(session()->has([Common::ALERT_MESSAGE_TEXT]))
-        <x-alert :type="session()->get(Common::ALERT_TYPE_ERROR)" :message="session()->get('message')"/>
+    @if(session()->has([Common::ALERT_MESSAGE_TEXT,Common::ALERT_TYPE_TEXT]))
+        <x-alert
+            :type="session()->get(Common::ALERT_TYPE_TEXT)"
+            :message="session()->get(Common::ALERT_MESSAGE_TEXT)"
+        />
     @endif
     <!-- Page Content -->
     <main>

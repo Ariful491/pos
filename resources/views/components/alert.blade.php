@@ -1,14 +1,34 @@
-@props(['messages','type'])
+<?php
+
+use App\Common\Common;
+
+?>
+@props([
+    'message',
+    'type'
+    ])
 
 <div>
     <div x-data="{ open: true }" class="text-center absolute left-0 right-0 py-4 lg:px-4">
         <div x-show="open"
-             class="p-2  bg-red-600 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+             class="p-2
+
+             {{Common::isTypeError($type) ? 'bg-red-600' : '' }}
+             {{Common::isTypeWarning($type) ? 'bg-yellow-600' : '' }}
+             {{Common::isTypeInfo($type) ? 'bg-cyan-600' : '' }}
+             {{Common::isTypeSuccess($type) ? 'bg-green-600' : '' }}
+
+              items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
              role="alert">
-            <span class="flex rounded-full bg-red-900 uppercase px-2 py-1 text-xs font-bold mr-3">New</span>
+            <span class="flex rounded-full
+             {{Common::isTypeError($type) ? '  bg-red-900' : '' }}
+             {{Common::isTypeWarning($type) ? 'bg-yellow-900' : '' }}
+             {{Common::isTypeInfo($type) ? 'bg-cyan-900' : '' }}
+             {{Common::isTypeSuccess($type) ? 'bg-green-900' : '' }}
+             uppercase px-2 py-1 text-xs font-bold mr-3">New</span>
             <span
                 class="font-semibold mr-2 text-left flex-auto">
-                Get the coolest t-shirts from our brand new store
+                {{$message}}
             </span>
 
             <button @click="open=false" type="button"
