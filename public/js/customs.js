@@ -56,5 +56,32 @@ $(document).ready(function () {
         });
         return checkedCount;
     }
+
+    /* === Submit those form that id was form-ajax  === */
+    $('body #form-ajax').submit(function () {
+        event.preventDefault();
+        let url = $(this).attr('action');
+        let method_name = $(this).attr('method');
+        let type_name = $(this).attr('enctype');
+        let form = $(this)[0];
+        let data = new FormData(form);
+
+        $.ajax({
+            type: method_name,
+            enctype: type_name,
+            url: url,
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 800000,
+        }).done(() => {
+
+        }).fail(() => {
+
+        });
+    })
+
+
 });
 
