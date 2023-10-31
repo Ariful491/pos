@@ -7,7 +7,6 @@ use Dotenv\Exception\ValidationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
@@ -18,16 +17,16 @@ class RoleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         return view('user-management.role.index');
     }
 
     /**
-     * @return Application|Factory|View|\Illuminate\Foundation\Application|RedirectResponse
+     * @return Application|Factory|View|RedirectResponse
      */
 
-    public function create()
+    public function create(): View|Factory|RedirectResponse|Application
     {
         try {
             $moduleNameWisePermissions = Permission::get()
