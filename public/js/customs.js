@@ -59,6 +59,11 @@ $(document).ready(function () {
 
 
     /* === Submit those form that id was form-ajax  === */
+
+    let saveBtnText = "Save"
+    let updateBtnText = "Update"
+    let processBtnText = "Processing..."
+
     $('body #form-ajax').submit(function () {
         event.preventDefault();
         let url, methodName, TypeName, form, data, submitBtn, submitBtnText;
@@ -69,7 +74,7 @@ $(document).ready(function () {
         data = new FormData(form);
         submitBtn = $('.submit-button');
         submitBtnText = $('.submit-btn-text');
-        $(submitBtnText).text("Processing...");
+        $(submitBtnText).text(processBtnText);
         $(submitBtn).prop("disabled", true);
 
 
@@ -83,7 +88,7 @@ $(document).ready(function () {
             cache: false,
             timeout: 800000,
         }).done((res) => {
-            $(submitBtnText).text("Save");
+            $(submitBtnText).text(saveBtnText);
             $(submitBtn).prop("disabled", false);
             console.log(res);
         }).fail((error) => {
