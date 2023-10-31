@@ -92,6 +92,7 @@ $(document).ready(function () {
             console.log(res);
         }).fail((error) => {
             console.log(error)
+            $(submitBtn).prop("disabled", false);
         });
     })
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Common\Common;
+use App\Http\Requests\StoreRoleRequest;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -45,7 +46,7 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRoleRequest $request)
     {
         return $request->all();
     }
