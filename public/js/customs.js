@@ -77,7 +77,6 @@ $(document).ready(function () {
         $(submitBtnText).text(processBtnText);
         $(submitBtn).prop("disabled", true);
 
-
         $.ajax({
             type: methodName,
             enctype: TypeName,
