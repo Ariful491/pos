@@ -72,7 +72,7 @@ $(document).ready(function () {
         TypeName = $(this).attr('enctype');
         form = $(this)[0];
         data = new FormData(form);
-        submitBtn = $('.submit-button');
+        submitBtn = $(".submit-btn");
         submitBtnText = $('.submit-btn-text');
         $(submitBtnText).text(processBtnText);
         $(submitBtn).prop("disabled", true);
