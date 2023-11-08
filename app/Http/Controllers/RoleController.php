@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Symfony\Component\HttpFoundation\Response;
 
 class RoleController extends Controller
@@ -48,7 +49,12 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        return $request->all();
+        $role = Role::create(['name' => $request->name]);
+        $permissions = $request->input('permissions');
+        if (!empty($permissions)) {
+            $role->syncPermissions($permissions);
+        }
+        return response()->json("Successfully done");
     }
 
     /**

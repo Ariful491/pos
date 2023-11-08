@@ -62,6 +62,8 @@ $(document).ready(function () {
     let saveBtnText = "Save"
     let updateBtnText = "Update"
     let processBtnText = "Processing..."
+    let errorIcon = "error";
+    let errorTitle = "Oops...";
 
     $('body #form-ajax').submit(function () {
         event.preventDefault();
@@ -90,11 +92,21 @@ $(document).ready(function () {
             $(submitBtn).prop("disabled", false);
             console.log(res);
         }).fail((error) => {
-            console.log(error)
+            alert(errorIcon,errorTitle,error.responseJSON)
             $(submitBtn).prop("disabled", false);
+            $(submitBtnText).text(saveBtnText);
         });
     })
 
+
+    /* === Sweet alert 2 error message   === */
+    const alert = (icon, title, text) =>{
+        Swal.fire({
+            icon: icon,
+            title: title,
+            text: text,
+        });
+    }
 
 });
 
