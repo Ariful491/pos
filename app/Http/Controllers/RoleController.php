@@ -8,6 +8,7 @@ use Dotenv\Exception\ValidationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
@@ -45,7 +46,8 @@ class RoleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param StoreRoleRequest $request
+     * @return JsonResponse
      */
     public function store(StoreRoleRequest $request)
     {
