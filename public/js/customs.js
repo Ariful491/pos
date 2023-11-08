@@ -35,7 +35,6 @@ $(document).ready(function () {
         }
     })
 
-
     function checkPermissionIsAllSelected() {
         let allCheckBox = $('.all-permissions input[type="checkbox"]');
         let totalCheckBoxLength = allCheckBox.length;
