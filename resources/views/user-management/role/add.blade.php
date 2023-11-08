@@ -73,7 +73,7 @@
                                                                type="checkbox"
                                                                data-type="child"
                                                                name="permissions[]"
-                                                               value="{{$permission->id}}"
+                                                               value="{{$permission->name}}"
                                                                class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                                         <label for="permission_{{$moduleName}}_{{$permission->id}}"
                                                                class="ml-2 text-sm font-medium capitalize text-gray-900 dark:text-gray-300">{{$permission->name}}</label>
@@ -97,9 +97,9 @@
                                               d="M9 3.75H6.912a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859M12 3v8.25m0 0l-3-3m3 3l3-3"/>
                                     </svg>
                                 </div>
-                               <div class="submit-btn-text">
-                                   Save
-                               </div>
+                                <div class="submit-btn-text">
+                                    Save
+                                </div>
 
                             </button>
                         </div>
