@@ -63,9 +63,11 @@ $(document).ready(function () {
     let updateBtnText = "Update"
     let processBtnText = "Processing..."
     let errorIcon = "error";
+    let successIcon = "success";
     let errorTitle = "Oops...";
+    let saveTitle = "Saved";
 
-    $('body #form-ajax').submit(function () {
+    $('body #form-ajax').submit(function (event) {
         event.preventDefault();
         let url, methodName, TypeName, form, data, submitBtn, submitBtnText;
         url = $(this).attr('action');
@@ -90,9 +92,10 @@ $(document).ready(function () {
         }).done((res) => {
             $(submitBtnText).text(saveBtnText);
             $(submitBtn).prop("disabled", false);
-            console.log(res);
+            alert(successIcon, saveTitle, res.message)
+            window.location.href = res.redirectUrl;
         }).fail((error) => {
-            alert(errorIcon,errorTitle,error.responseJSON)
+            alert(errorIcon, errorTitle, error.responseJSON)
             $(submitBtn).prop("disabled", false);
             $(submitBtnText).text(saveBtnText);
         });
@@ -100,7 +103,7 @@ $(document).ready(function () {
 
 
     /* === Sweet alert 2 error message   === */
-    const alert = (icon, title, text) =>{
+    const alert = (icon, title, text) => {
         Swal.fire({
             icon: icon,
             title: title,

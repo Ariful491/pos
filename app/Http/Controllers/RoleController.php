@@ -49,14 +49,15 @@ class RoleController extends Controller
      * @param StoreRoleRequest $request
      * @return JsonResponse
      */
-    public function store(StoreRoleRequest $request)
+    public function store(StoreRoleRequest $request): JsonResponse
     {
         $role = Role::create(['name' => $request->name]);
         $permissions = $request->input('permissions');
         if (!empty($permissions)) {
             $role->syncPermissions($permissions);
         }
-        return response()->json("Successfully done");
+        return $this->successResponse('Permission has been saved successfully.', '/roles');
+
     }
 
     /**
