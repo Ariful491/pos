@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
 class RoleController extends Controller
 {
@@ -38,7 +39,7 @@ class RoleController extends Controller
                 throw new ValidationException("Permissions was not found.", Response::HTTP_NOT_FOUND);
             }
             return view('user-management.role.add', ['moduleNameWisePermissions' => $moduleNameWisePermissions]);
-        } catch (\Throwable $ex) {
+        } catch (Throwable $ex) {
             session()->flash(Common::ALERT_MESSAGE_TEXT, $ex->getMessage());
             session()->flash(Common::ALERT_TYPE_TEXT, Common::ALERT_TYPE_ERROR);
             return back();
