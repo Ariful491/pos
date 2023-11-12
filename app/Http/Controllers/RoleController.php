@@ -21,8 +21,10 @@ class RoleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
+        //$roles = Role::with('permissions')->get();
+
         return view('user-management.role.index');
     }
 
