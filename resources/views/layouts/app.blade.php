@@ -41,10 +41,7 @@ use App\Common\Common;
     @endif
 
     @if(session()->has([Common::ALERT_MESSAGE_TEXT,Common::ALERT_TYPE_TEXT]))
-        <x-alert
-            :type="session()->get(Common::ALERT_TYPE_TEXT)"
-            :message="session()->get(Common::ALERT_MESSAGE_TEXT)"
-        />
+        <x-alert :type="session()->get(Common::ALERT_TYPE_TEXT)" :message="session()->get(Common::ALERT_MESSAGE_TEXT)"/>
     @endif
     <!-- Page Content -->
     <main>

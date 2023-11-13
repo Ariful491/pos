@@ -23,7 +23,7 @@
     </div>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="w-full mx-auto sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4  gap-4  ">
                 <div
                     class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -52,17 +52,25 @@
                 </div>
                 <div class="col-span-3">
                     <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                        <table class="stripe hover"
+                        <table class="stripe hover" id="datatable"
                                style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                             <thead>
                             <tr>
                                 <th data-priority="1">Sl</th>
                                 <th data-priority="2">Name</th>
-                                <th data-priority="3">Email</th>
+                                <th data-priority="3">Permissions</th>
                                 <th data-priority="4">Action</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($roles as $index=>$role)
+                                <tr>
+                                    <td>{{$index+1}}</td>
+                                    <td>{{$role->name}}</td>
+                                    <td>{{$role->name}}</td>
+                                    <td>{{$role->name}}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

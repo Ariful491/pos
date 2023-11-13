@@ -48,7 +48,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <!--/Card-->
                 </div>
             </div>
         </div>
