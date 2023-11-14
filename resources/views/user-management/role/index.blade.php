@@ -64,12 +64,14 @@
                             </thead>
                             <tbody>
                             @foreach($roles as $index=>$role)
+
                                 <tr>
                                     <td>{{$index+1}}</td>
                                     <td>{{$role->name}}</td>
                                     <td>{{$role->name}}</td>
                                     <td>{{$role->name}}</td>
                                 </tr>
+
                             @endforeach
                             </tbody>
                         </table>
