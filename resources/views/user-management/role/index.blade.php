@@ -28,7 +28,6 @@
                 <div
                     class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <ul role="list" class=" ">
-
                         <li class="my-2">
                             <a href="{{route('users.index')}}"
                                class="p-3 rounded-2xl  hover:shadow hover:transition-all  flex hover:bg-gray-100  sm:py-4 justify-between">Users </a>
@@ -52,8 +51,8 @@
                 </div>
                 <div class="col-span-3">
                     <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                        <table class="stripe hover" id="datatable"
-                               style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <table class="stripe hover"  id="datatable"
+                               style="width:100%; padding-top: 1em;  padding-bottom: 1em;" >
                             <thead>
                             <tr>
                                 <th data-priority="1">Sl</th>
