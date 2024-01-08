@@ -1,6 +1,4 @@
 
-
-
 ## About POS CMS 
 #### THS IS VERSION  v0
 ## IMPLEMENTATION
